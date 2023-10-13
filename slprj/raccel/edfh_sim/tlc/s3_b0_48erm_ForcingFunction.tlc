@@ -1,0 +1,43 @@
+%implements s3_b0_48erm_ForcingFunction "C"
+
+%function ForcingFunction(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+
+XDis *_rtXdis;
+XDot *_rtXdot;
+%closefile localVarDecl
+%assign tlcForcingFunctionFcnOfS3B0 = OpaqueTLCBlockFcn("ForcingFunction", 3, 0, 0, 5, 0)
+%<SLibCG_TrackContStatesDisabled(3)>\
+_rtXdis = %<(SLibCG_SE(SLibGetContStatesDisabledStructPtr()))>;
+_rtXdot = %<(SLibCG_SE(SLibGetContStatesDerivativeStructPtr()))>;
+%<tlcForcingFunctionFcnOfS3B0>\
+if (_rtXdis->lc4otgpiic) {
+    _rtXdot->lc4otgpiic = 0.0;
+} else {
+    _rtXdot->lc4otgpiic = rtB.meuelqs52q;
+}
+if (_rtXdis->duh1suzfu4[0]) {
+    _rtXdot->duh1suzfu4[0] = 0.0;
+} else {
+    _rtXdot->duh1suzfu4[0] = rtB.f5scxu4cdl[0];
+}
+if (_rtXdis->duh1suzfu4[1]) {
+    _rtXdot->duh1suzfu4[1] = 0.0;
+} else {
+    _rtXdot->duh1suzfu4[1] = rtB.f5scxu4cdl[1];
+}
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedForcingFunctionLocalVars", localVarDecl)>
+%endfunction
+%function ForcingFunctionFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void ForcingFunction(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 5, fcnProtoType)>
+%endfunction

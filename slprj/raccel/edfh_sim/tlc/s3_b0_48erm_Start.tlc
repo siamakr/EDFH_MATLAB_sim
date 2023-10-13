@@ -1,0 +1,37 @@
+%implements s3_b0_48erm_Start "C"
+
+%function Start(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcSetupRuntimeResourcesFcnOfS3B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 3, 0, 0, 0, 0)
+%assign tlcSetupRuntimeResourcesFcnOfS3B1 = OpaqueTLCBlockFcn("SetupRuntimeResources", 3, 1, 0, 0, 1)
+%assign tlcSetupRuntimeResourcesFcnOfS3B2 = OpaqueTLCBlockFcn("SetupRuntimeResources", 3, 2, 0, 0, 2)
+%assign tlcSetupRuntimeResourcesFcnOfS3B3 = OpaqueTLCBlockFcn("SetupRuntimeResources", 3, 3, 0, 0, 3)
+%assign tlcSetupRuntimeResourcesFcnOfS3B4 = OpaqueTLCBlockFcn("SetupRuntimeResources", 3, 4, 0, 0, 4)
+%assign tlcSetupRuntimeResourcesFcnOfS3B5 = OpaqueTLCBlockFcn("SetupRuntimeResources", 3, 5, 0, 0, 5)
+%assign tlcSetupRuntimeResourcesFcnOfS3B6 = OpaqueTLCBlockFcn("SetupRuntimeResources", 3, 6, 0, 0, 6)
+%assign tlcStartFcnOfS3B0 = OpaqueTLCBlockFcn("Start", 3, 0, 0, 0, 7)
+%assign tlcStartFcnOfS3B5 = OpaqueTLCBlockFcn("Start", 3, 5, 0, 0, 8)
+%assign tlcStartFcnOfS3B6 = OpaqueTLCBlockFcn("Start", 3, 6, 0, 0, 9)
+%<tlcSetupRuntimeResourcesFcnOfS3B0>\
+%<tlcSetupRuntimeResourcesFcnOfS3B1>\
+%<tlcSetupRuntimeResourcesFcnOfS3B2>\
+%<tlcSetupRuntimeResourcesFcnOfS3B3>\
+%<tlcSetupRuntimeResourcesFcnOfS3B4>\
+%<tlcSetupRuntimeResourcesFcnOfS3B5>\
+%<tlcSetupRuntimeResourcesFcnOfS3B6>\
+%<tlcStartFcnOfS3B0>\
+%<tlcStartFcnOfS3B5>\
+%<tlcStartFcnOfS3B6>\
+%closefile cfgTxt
+%<cfgTxt>
+%endfunction
+%function StartFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Start(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 0, fcnProtoType)>
+%endfunction
